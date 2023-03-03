@@ -20,9 +20,19 @@ out <- accumulate(input
          , fun  = sum, na.rm=TRUE)
 
 expect_equal(out[,1], unique(collapse[,1]))
-expect_equal(out[,2], c(0, 1 ,  1,  1,   2, 2  , 2))
+expect_equal(out[,2], c(0, 1 ,  1,  1,   2,   2, 2))
 expect_equal(out[,3], c(7, 56, 56, 56, 448, 448, 448))
 expect_equal(out[,4], c(6, 48, 48, 48, 384, 384, 384))
+
+# With NA in result (case where no subset passes test())
+out <- accumulate(input, collapse
+          , test=function(d) nrow(d) >= 10
+          , fun = sum, na.rm=TRUE)
+
+expect_equal(out[,3], rep(NA,7))
+expect_equal(out[,4], rep(NA,7))
+
+ 
 
 ## Accumulate with collapsing scheme as formula
 input <- data.frame(
@@ -82,4 +92,49 @@ out <- cumulate(data=input
         , tY = sum(Y) )
 
 expect_equivalent(out, output)
+
+# Case where the aggregate is an object (not a scalar)
+out <- cumulate(data=input
+        , collapse = A*B ~ A*B1 + A
+        , test = function(d) nrow(d) >= 3
+        , model = lm(Y ~ 1)
+       )
+
+expect_inherits(out$model, "object_list")
+
+# with extra columns
+out <- cumulate(data=input
+        , collapse = A*B ~ A*B1 + A
+        , test = function(d) nrow(d) >= 3
+        , model = lm(Y ~ 1)
+        , mean   = mean(Y)
+       )
+
+expect_equivalent(sapply(out$model, coef), out$mean)
+
+
+
+
+## test connection with 'validator' 
+if ( !requireNamespace("validate", quietly=TRUE) ){ 
+  exit_file("validate not installed")
+}
+
+rules <- validate::validator(nrow(.) >= 3, sum(Y >= 2) >= 3)
+
+input <- data.frame(
+     A  = c(1,1,1,2,2,2,3,3,3)
+   , B  = c(11,11,11,12,12,13,21,22,12)
+   , B1 = c(1,1,1,1,1,1,2,2,1)
+   , Y  = 2^(0:8)
+)
+
+expect_silent(accumulate(input, collapse = A*B ~ A*B1 + B1,
+    test = from_validator(rules), fun=sum))
+
+
+
+
+
+
 

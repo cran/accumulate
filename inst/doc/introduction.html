@@ -149,7 +149,7 @@ color: #ee8c70; }
 %\VignetteEngine{simplermarkdown::mdweave_to_html}
 %\VignetteIndexEntry{Introduction to accumulate}
 -->
-<p>Package version 0.8.1.</p>
+<p>Package version 0.9.0.</p>
 <p>Use <code>citation(&#39;accumulate&#39;)</code> to cite the package.</p>
 <h2 id="introduction">Introduction</h2>
 <p><code>Accumulate</code> is a package for grouped aggregation, where the groups can be dynamically collapsed into larger groups. When this collapsing takes place and how collapsing takes place is user-defined.</p>
@@ -160,7 +160,7 @@ color: #ee8c70; }
 <div class="sourceCode" id="load_package"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="load_package-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(accumulate)</a>
 <a class="sourceLine" id="load_package-2" title="2"></a>
 <a class="sourceLine" id="load_package-3" title="3"><span class="op">&gt;</span><span class="st"> </span><span class="kw">packageVersion</span>(<span class="st">&quot;accumulate&quot;</span>)</a>
-<a class="sourceLine" id="load_package-4" title="4">[<span class="dv">1</span>] ‘<span class="dv">0</span>.<span class="fl">8.1</span>’</a></code></pre></div>
+<a class="sourceLine" id="load_package-4" title="4">[<span class="dv">1</span>] ‘<span class="dv">0</span>.<span class="fl">9.0</span>’</a></code></pre></div>
 <h2 id="a-first-example">A first example</h2>
 <p>We will use a built-in dataset as example.</p>
 <div class="sourceCode" id="loading_data"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="loading_data-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">data</span>(producers)</a>
@@ -244,7 +244,7 @@ color: #ee8c70; }
 <a class="sourceLine" id="accumulate_formula-5" title="5">   sbi size level industrial trade other other_income  total</a>
 <a class="sourceLine" id="accumulate_formula-6" title="6"><span class="dv">1</span> <span class="dv">3410</span>    <span class="dv">8</span>     <span class="dv">1</span>     <span class="dv">364397</span>  <span class="dv">2859</span>    <span class="dv">33</span>          <span class="dv">353</span> <span class="dv">546117</span></a>
 <a class="sourceLine" id="accumulate_formula-7" title="7"><span class="dv">2</span> <span class="dv">2840</span>    <span class="dv">7</span>     <span class="dv">0</span>      <span class="dv">23160</span>   <span class="dv">823</span>    <span class="dv">49</span>          <span class="dv">329</span>  <span class="dv">25812</span></a>
-<a class="sourceLine" id="accumulate_formula-8" title="8"><span class="dv">3</span> <span class="dv">2752</span>    <span class="dv">5</span>     <span class="dv">2</span>          <span class="dv">6</span> <span class="dv">19526</span>    <span class="dv">39</span>           <span class="dv">52</span>    <span class="dv">151</span></a>
+<a class="sourceLine" id="accumulate_formula-8" title="8"><span class="dv">3</span> <span class="dv">2752</span>    <span class="dv">5</span>     <span class="dv">2</span>      <span class="dv">19526</span>    <span class="dv">39</span>    <span class="dv">52</span>          <span class="dv">151</span>  <span class="dv">20603</span></a>
 <a class="sourceLine" id="accumulate_formula-9" title="9"><span class="dv">4</span> <span class="dv">3120</span>    <span class="dv">6</span>     <span class="dv">0</span>      <span class="dv">20710</span>   <span class="dv">504</span>   <span class="dv">112</span>          <span class="dv">200</span>  <span class="dv">21702</span></a>
 <a class="sourceLine" id="accumulate_formula-10" title="10"><span class="dv">5</span> <span class="dv">2524</span>    <span class="dv">7</span>     <span class="dv">0</span>      <span class="dv">27954</span>  <span class="dv">1268</span>    <span class="dv">55</span>          <span class="dv">456</span>  <span class="dv">30468</span></a>
 <a class="sourceLine" id="accumulate_formula-11" title="11"><span class="dv">6</span> <span class="dv">3410</span>    <span class="dv">6</span>     <span class="dv">1</span>     <span class="dv">364397</span>  <span class="dv">2859</span>    <span class="dv">33</span>          <span class="dv">353</span> <span class="dv">546117</span></a></code></pre></div>
@@ -287,7 +287,7 @@ color: #ee8c70; }
 <a class="sourceLine" id="dataframe_cumulate-9" title="9"><span class="dv">3</span> <span class="dv">2752</span>     <span class="dv">2</span>  <span class="fl">20603.08</span>  <span class="fl">31286.51</span></a>
 <a class="sourceLine" id="dataframe_cumulate-10" title="10"><span class="dv">4</span> <span class="dv">3120</span>     <span class="dv">0</span>  <span class="fl">26548.61</span>  <span class="fl">26784.60</span></a>
 <a class="sourceLine" id="dataframe_cumulate-11" title="11"><span class="dv">5</span> <span class="dv">2524</span>     <span class="dv">0</span>  <span class="fl">23434.68</span>  <span class="fl">18022.32</span></a>
-<a class="sourceLine" id="dataframe_cumulate-12" title="12"><span class="dv">6</span> <span class="dv">2875</span>     <span class="dv">0</span>  <span class="fl">15962.24</span>   <span class="fl">9640.14</span></a></code></pre></div>
+<a class="sourceLine" id="dataframe_cumulate-12" title="12"><span class="dv">7</span> <span class="dv">2875</span>     <span class="dv">0</span>  <span class="fl">15962.24</span>   <span class="fl">9640.14</span></a></code></pre></div>
 <p>In this representation is is not possible to use multiple grouping variables, unless you combine multiple grouping variables into a single one, for example by pasting them together.</p>
 <p>The advantage of this representation is that it allows users to externally define a (manually edited) collapsing scheme.</p>
 <h3 id="exercises-2">Exercises</h3>
