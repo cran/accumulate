@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{from_validator}
 \alias{from_validator}
-\title{Use a validate::validator object to test a group}
+\title{Use a validate::validator object to define a test}
 \usage{
 from_validator(v, ...)
 }
@@ -18,16 +18,17 @@ a function that accepts a data fram and returns \code{TRUE}
         \code{FALSE}.
 }
 \description{
-Returns \code{TRUE} when the data passes all checks defined in the
-\code{validator} object, otherwise \code{FALSE}.
+Create a test function that accepts a data.frame, and returns \code{TRUE}
+when the data passes all checks defined in the \code{validator} object, and
+otherwise \code{FALSE}.
 }
 \note{
 Requires the \code{validate} package to be installed.
 }
 \examples{
 
-if (requireNamespace("validate", quitetly=TRUE)){
- v <- validator(height >= 0, weight >= 0)
+if (requireNamespace("validate", quietly=TRUE)){
+ v <- validate::validator(height >= 0, weight >= 0)
  f <- from_validator(v)
  f(women)  # TRUE (all heights and weights are nonnegative)
 }

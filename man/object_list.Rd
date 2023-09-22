@@ -5,7 +5,7 @@
 \alias{format.object_list}
 \alias{print.object_list}
 \alias{[.object_list}
-\title{create a classed list}
+\title{Create a classed list}
 \usage{
 object_list(x)
 
@@ -19,7 +19,8 @@ object_list(x)
 \item{x}{a list}
 }
 \description{
-create a classed list
+Classed lists are used to pretty-print a list that is stored
+in a data frame.
 }
 \examples{
 object_list(list(lm(speed ~ dist, data=cars)))

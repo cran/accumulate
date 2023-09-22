@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{smoke_test}
 \alias{smoke_test}
-\title{Test your testing function for common edge cases}
+\title{Check your testing function against common edge cases}
 \usage{
 smoke_test(dat, test, verbose = FALSE, halt = TRUE)
 }
@@ -27,7 +27,7 @@ Writing a testing function that works on any subset of records of a
 dataframe can be quite subtle. This function tries the testing function on a
 number of common (edge) cases that are easily overlooked.  It is \emph{not}
 a unit test: a smoke test will not tell you whether your output is correct.
-It only checks the output data type (mustbe \code{TRUE} or \code{FALSE} and
+It only checks the output data type (must be \code{TRUE} or \code{FALSE} and
 reports if errors, warnings, or messages occur.
 }
 \examples{

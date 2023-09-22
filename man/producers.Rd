@@ -3,7 +3,7 @@
 \docType{data}
 \name{producers}
 \alias{producers}
-\title{synthetic data on producers}
+\title{Synthetic data on producers}
 \format{
 A \code{.rda} file, one producer per row.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{csh_from_digits}
 \alias{csh_from_digits}
-\title{Derive collapsing scheme from hierarchical classification}
+\title{Derive collapsing scheme from a hierarchical classification}
 \usage{
 csh_from_digits(x, levels = max(nchar(x)) - 1)
 }

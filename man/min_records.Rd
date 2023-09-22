@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{min_records}
 \alias{min_records}
-\title{Demand minimal number of functons}
+\title{Demand minimal number of records}
 \usage{
 min_records(n)
 }
@@ -15,7 +15,7 @@ a function that accepts a data frame and returns \code{TRUE}
         and otherwise \code{FALSE}.
 }
 \description{
-Demand minimal number of functons
+Demand minimal number of records
 }
 \examples{
 

@@ -55,7 +55,7 @@ a <- accumulate(producers, collapse = sbi*size ~ sbi
                , fun  = mean, na.rm=TRUE)
 
 # 2. using a 'validator' object
-rules <- validate::validator(nrow(.) >= 3)
+rules <- validate::validator(nrow(.) >= 5)
 a <- accumulate(producers, collapse = sbi*size ~ sbi
                , test = from_validator(rules)
                , fun  = mean, na.rm=TRUE)
@@ -64,6 +64,18 @@ a <- accumulate(producers, collapse = sbi*size ~ sbi
 a <- accumulate(producers, collapse=sbi*size ~ sbi
                , test = function(d) nrow(d) >= 5
                , fun  = mean, na.rm=TRUE)
+
+# complex
+a <- cumulate(producers, collapse = sbi*size ~ sbi
+                       , test = min_complete(5, c("other_income","trade"))
+                       , model = lm(other_income ~ trade)
+                       , mean_other = mean(other_income, na.rm=TRUE))
+
+head(a)
+
+# objlist
+a$model[[1]]
+a$model[[2]]
 
 # smoketest1
 my_test <- function(d) sum(other != 0) > 3
