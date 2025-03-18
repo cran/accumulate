@@ -159,3 +159,7 @@ cumulate(data = dat
 )
 
 }
+\references{
+MPJ van der Loo (2025) \emph{Split-Apply-Combine with Dynamic Grouping}
+Journal of Statistical Software \code{doi:10.18637/jss.v112.i04}.
+}
